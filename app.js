@@ -5,6 +5,7 @@ const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const MockAdapter = require('@bot-whatsapp/database/mock')
 const axios = require('axios');
 
+
 ///////////////////////// API PLANES /////////////////////////
 
 const menuIDPLANES = async () => {
@@ -25,6 +26,8 @@ const menuIDPLANES = async () => {
     return [];
   }
 };
+
+
 
 ///////////////////////// API CONTRATOS ///////////////////////
 
@@ -83,6 +86,7 @@ const menuAPICONTRATO = async (numero_documento) => {
     return [{ body: 'Ocurrió un error al realizar la búsqueda. Por favor, inténtalo de nuevo más tarde.' }];
   }
 };
+
 
 
 ///////////////////////// API USUARIOS ///////////////////////
