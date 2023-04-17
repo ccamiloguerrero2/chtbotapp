@@ -1,0 +1,429 @@
+Ejemplo de respuest GET de menuAPICONTRATO cuando el documento tiene solo 1 contrato:
+
+"{
+    "status": 200,
+    "meta": {
+        "object": "contract",
+        "pagination": {
+            "total_records": 1,
+            "total_pages": 1,
+            "per_page": 20,
+            "current_page": 1
+        }
+    },
+    "data": [
+        {
+            "id": "4488a480-86bf-4f21-9a4a-c5ae1507642f",
+            "public_id": 244,
+            "plan_id": "901c501d-739b-4191-9571-1bf7920deab2",
+            "client_id": "c1814871-2118-4dca-ab56-d2e14e337bc4",
+            "server_configuration_id": "d209dfa3-9c3f-4da1-8c65-4e7e8ea47761",
+            "state": "enabled",
+            "start_date": "2019-07-23",
+            "ip": "192.168.8.114",
+            "netmask": "255.255.255.255",
+            "mac_address": "00:04:56:F1:7B:07",
+            "coverage_id": "5f6162fe-f39e-4b0d-b09b-33e54e883519",
+            "node_id": "1f32ba6b-4b77-4d35-a09a-153d281cf50d",
+            "node_name": "ARROYO ALTO",
+            "cpe_port": "80",
+            "cpe_protocol": "http",
+            "ceil_dfl_percent": 70,
+            "pppoe_enabled": false,
+            "pppoe_username": "",
+            "pppoe_password": "",
+            "ppp_profile_id": null,
+            "dhcp_enabled": false,
+            "dhcp_server": "",
+            "dhcp_mac_defined_by_service": false,
+            "dhcp_mac_address": "",
+            "cable_modem_enabled": false,
+            "cable_modem_ip": "",
+            "cable_modem_mac_address": "",
+            "cable_modem_gateway": "",
+            "latitude": "3.5587661851415646",
+            "longitude": "-76.55367242683644",
+            "address_street": "",
+            "address_number": "",
+            "address_city": "",
+            "address_state": "",
+            "address_country": "",
+            "address_additional_data": "",
+            "details": "",
+            "mikrotik_interface_id": null,
+            "created_at": "2019-07-23T11:07:29.921-05:00",
+            "updated_at": "2021-12-10T09:05:27.240-05:00"
+        }
+    ]
+}"
+
+Ejemplo de respuest GET de menuAPICONTRATO cuando el documento tiene mas de 1 contrato:
+
+
+"{
+    "status": 200,
+    "meta": {
+        "object": "contract",
+        "pagination": {
+            "total_records": 3,
+            "total_pages": 1,
+            "per_page": 20,
+            "current_page": 1
+        }
+    },
+    "data": [
+        {
+            "id": "07d62914-39f7-48b3-8251-5ef424907fb8",
+            "public_id": 133,
+            "plan_id": "2d747f4f-4456-428e-88c8-9dd68aca648c",
+            "client_id": "920cd8d5-7f87-4a92-bb92-9c94f8054451",
+            "server_configuration_id": "d209dfa3-9c3f-4da1-8c65-4e7e8ea47761",
+            "state": "enabled",
+            "start_date": "2019-07-16",
+            "ip": "192.168.6.90",
+            "netmask": "255.255.255.255",
+            "mac_address": "00:04:56:62:85:65",
+            "coverage_id": "05f77492-ca94-4eb3-9c6f-d559682324e6",
+            "node_id": "58aecbef-e3a7-4a6f-aa6c-5e73ad2e1e2f",
+            "node_name": "CERRO GORDO",
+            "cpe_port": "80",
+            "cpe_protocol": "http",
+            "ceil_dfl_percent": 70,
+            "pppoe_enabled": false,
+            "pppoe_username": "",
+            "pppoe_password": "",
+            "ppp_profile_id": null,
+            "dhcp_enabled": false,
+            "dhcp_server": "",
+            "dhcp_mac_defined_by_service": false,
+            "dhcp_mac_address": "",
+            "cable_modem_enabled": false,
+            "cable_modem_ip": "",
+            "cable_modem_mac_address": "",
+            "cable_modem_gateway": "",
+            "latitude": "3.582427701269812",
+            "longitude": "-76.54424771167953",
+            "address_street": "",
+            "address_number": "",
+            "address_city": "",
+            "address_state": "",
+            "address_country": "",
+            "address_additional_data": "",
+            "details": "",
+            "mikrotik_interface_id": null,
+            "created_at": "2019-07-16T15:50:00.693-05:00",
+            "updated_at": "2023-03-14T11:59:10.903-05:00"
+        },
+        {
+            "id": "4676a245-07cc-410a-ad2e-5edf16c6bec1",
+            "public_id": 296,
+            "plan_id": "31df3c2f-3bae-476c-b838-def22f92805d",
+            "client_id": "920cd8d5-7f87-4a92-bb92-9c94f8054451",
+            "server_configuration_id": "d209dfa3-9c3f-4da1-8c65-4e7e8ea47761",
+            "state": "enabled",
+            "start_date": "2019-07-30",
+            "ip": "192.168.6.8",
+            "netmask": "255.255.255.255",
+            "mac_address": null,
+            "coverage_id": null,
+            "node_id": null,
+            "node_name": null,
+            "cpe_port": "80",
+            "cpe_protocol": "http",
+            "ceil_dfl_percent": 70,
+            "pppoe_enabled": false,
+            "pppoe_username": "",
+            "pppoe_password": "",
+            "ppp_profile_id": null,
+            "dhcp_enabled": false,
+            "dhcp_server": "",
+            "dhcp_mac_defined_by_service": false,
+            "dhcp_mac_address": "",
+            "cable_modem_enabled": false,
+            "cable_modem_ip": "",
+            "cable_modem_mac_address": "",
+            "cable_modem_gateway": "",
+            "latitude": "3.4851166696634603",
+            "longitude": "-76.5164573131135",
+            "address_street": "",
+            "address_number": "",
+            "address_city": "",
+            "address_state": "",
+            "address_country": "",
+            "address_additional_data": "",
+            "details": "",
+            "mikrotik_interface_id": null,
+            "created_at": "2019-07-30T09:23:53.033-05:00",
+            "updated_at": "2023-03-14T11:52:46.174-05:00"
+        },
+        {
+            "id": "d05af03b-ae6c-417e-9594-9230b8ee5569",
+            "public_id": 569,
+            "plan_id": "31df3c2f-3bae-476c-b838-def22f92805d",
+            "client_id": "920cd8d5-7f87-4a92-bb92-9c94f8054451",
+            "server_configuration_id": "d209dfa3-9c3f-4da1-8c65-4e7e8ea47761",
+            "state": "enabled",
+            "start_date": "2020-06-16",
+            "ip": "192.168.6.157",
+            "netmask": "255.255.255.255",
+            "mac_address": null,
+            "coverage_id": null,
+            "node_id": null,
+            "node_name": null,
+            "cpe_port": "80",
+            "cpe_protocol": "http",
+            "ceil_dfl_percent": 70,
+            "pppoe_enabled": false,
+            "pppoe_username": "",
+            "pppoe_password": "",
+            "ppp_profile_id": null,
+            "dhcp_enabled": false,
+            "dhcp_server": "",
+            "dhcp_mac_defined_by_service": false,
+            "dhcp_mac_address": "",
+            "cable_modem_enabled": false,
+            "cable_modem_ip": "",
+            "cable_modem_mac_address": "",
+            "cable_modem_gateway": "",
+            "latitude": "3.507740765557253",
+            "longitude": "-76.50082463783862",
+            "address_street": "",
+            "address_number": "",
+            "address_city": "",
+            "address_state": "",
+            "address_country": "",
+            "address_additional_data": "",
+            "details": "CONEXION RONALD OPEN GROUP EN PRUEBA",
+            "mikrotik_interface_id": null,
+            "created_at": "2020-06-16T17:45:54.913-05:00",
+            "updated_at": "2022-08-31T17:50:16.596-05:00"
+        }
+    ]
+}"
+
+
+Ejemplo de respuest GET de menuIDPLANES:
+
+"{
+    "status": 200,
+    "meta": {
+        "object": "plan",
+        "pagination": {
+            "total_records": 13,
+            "total_pages": 1,
+            "per_page": 20,
+            "current_page": 1
+        }
+    },
+    "data": [
+        {
+            "id": "901c501d-739b-4191-9571-1bf7920deab2",
+            "name": "PLAN HOGAR 1",
+            "public_id": 4,
+            "cir": "0.5",
+            "ceil_down_kbps": 10000,
+            "ceil_up_kbps": 5000,
+            "price": "68403.0",
+            "frequency_in_months": 1,
+            "contracts_count": 520,
+            "created_at": "2019-05-27T12:13:41.415-05:00",
+            "updated_at": "2022-09-01T09:51:40.010-05:00"
+        },
+        {
+            "id": "433e7ff7-6c88-46ff-b046-ff6cec65befe",
+            "name": "PLAN HOGAR 2",
+            "public_id": 5,
+            "cir": "0.5",
+            "ceil_down_kbps": 15000,
+            "ceil_up_kbps": 7000,
+            "price": "89328.0",
+            "frequency_in_months": 1,
+            "contracts_count": 217,
+            "created_at": "2019-05-27T12:16:07.776-05:00",
+            "updated_at": "2022-09-01T09:52:02.391-05:00"
+        },
+        {
+            "id": "03205fc9-3f73-4d39-adc6-e1c9acf3b536",
+            "name": "PLAN HOGAR 3",
+            "public_id": 6,
+            "cir": "0.5",
+            "ceil_down_kbps": 20000,
+            "ceil_up_kbps": 10000,
+            "price": "118487.0",
+            "frequency_in_months": 1,
+            "contracts_count": 111,
+            "created_at": "2019-05-27T12:18:08.894-05:00",
+            "updated_at": "2022-09-01T09:52:25.675-05:00"
+        },
+        {
+            "id": "84b3566f-6ebb-4636-a5d1-0549d965c5c4",
+            "name": "PLAN HOGAR 4",
+            "public_id": 7,
+            "cir": "0.5",
+            "ceil_down_kbps": 25000,
+            "ceil_up_kbps": 12000,
+            "price": "137479.0",
+            "frequency_in_months": 1,
+            "contracts_count": 48,
+            "created_at": "2019-05-27T14:22:47.047-05:00",
+            "updated_at": "2022-09-01T09:52:44.912-05:00"
+        },
+        {
+            "id": "9377da3c-e384-43a6-beb7-cf12b3268db6",
+            "name": "PLAN HOGAR 5",
+            "public_id": 8,
+            "cir": "0.5",
+            "ceil_down_kbps": 30000,
+            "ceil_up_kbps": 15000,
+            "price": "158655.0",
+            "frequency_in_months": 1,
+            "contracts_count": 32,
+            "created_at": "2019-05-27T14:24:00.242-05:00",
+            "updated_at": "2022-09-01T09:53:10.316-05:00"
+        },
+        {
+            "id": "3de0d569-0da6-4299-9084-d926a86e344b",
+            "name": "PLAN HOGAR 6",
+            "public_id": 9,
+            "cir": "0.5",
+            "ceil_down_kbps": 35000,
+            "ceil_up_kbps": 17000,
+            "price": "209662.0",
+            "frequency_in_months": 1,
+            "contracts_count": 38,
+            "created_at": "2019-05-27T14:25:21.556-05:00",
+            "updated_at": "2022-09-01T09:53:47.085-05:00"
+        },
+        {
+            "id": "b6816b97-10b9-4940-a2cb-1bfc22ab6919",
+            "name": "PLAN HOGAR 0",
+            "public_id": 10,
+            "cir": "0.5",
+            "ceil_down_kbps": 6000,
+            "ceil_up_kbps": 2000,
+            "price": "64998.0",
+            "frequency_in_months": 1,
+            "contracts_count": 9,
+            "created_at": "2019-07-12T16:18:23.532-05:00",
+            "updated_at": "2022-09-01T09:56:41.033-05:00"
+        },
+        {
+            "id": "b24a2bc0-17e3-4d09-bf1a-d52691df16bd",
+            "name": "ADMINISTRADORES",
+            "public_id": 14,
+            "cir": "0.2",
+            "ceil_down_kbps": 30000,
+            "ceil_up_kbps": 10000,
+            "price": "0.0",
+            "frequency_in_months": 1,
+            "contracts_count": 2,
+            "created_at": "2019-09-03T17:19:07.031-05:00",
+            "updated_at": "2022-04-18T09:46:36.326-05:00"
+        },
+        {
+            "id": "2a081164-3caa-4cd8-98ff-00e43fd156d9",
+            "name": "PLAN HOGAR 7",
+            "public_id": 16,
+            "cir": "0.5",
+            "ceil_down_kbps": 40000,
+            "ceil_up_kbps": 20000,
+            "price": "300000.0",
+            "frequency_in_months": 1,
+            "contracts_count": 4,
+            "created_at": "2019-09-19T17:18:45.258-05:00",
+            "updated_at": "2022-09-01T09:57:07.713-05:00"
+        },
+        {
+            "id": "31df3c2f-3bae-476c-b838-def22f92805d",
+            "name": "PLAN HOGAR 8",
+            "public_id": 17,
+            "cir": "0.5",
+            "ceil_down_kbps": 50000,
+            "ceil_up_kbps": 22000,
+            "price": "379832.0",
+            "frequency_in_months": 1,
+            "contracts_count": 8,
+            "created_at": "2019-09-20T08:49:21.770-05:00",
+            "updated_at": "2022-09-01T09:57:31.991-05:00"
+        },
+        {
+            "id": "aaaa6571-d7e6-469c-a183-b9331e644f1f",
+            "name": "10 M SIMETRICOS",
+            "public_id": 20,
+            "cir": "0.5",
+            "ceil_down_kbps": 12000,
+            "ceil_up_kbps": 12000,
+            "price": "0.0",
+            "frequency_in_months": 1,
+            "contracts_count": 1,
+            "created_at": "2019-10-22T16:40:26.390-05:00",
+            "updated_at": "2022-04-18T09:46:54.618-05:00"
+        },
+        {
+            "id": "2d747f4f-4456-428e-88c8-9dd68aca648c",
+            "name": "OFICINA",
+            "public_id": 26,
+            "cir": "0.2",
+            "ceil_down_kbps": 100000,
+            "ceil_up_kbps": 100000,
+            "price": "0.0",
+            "frequency_in_months": 1,
+            "contracts_count": 7,
+            "created_at": "2020-07-02T17:36:22.487-05:00",
+            "updated_at": "2022-04-18T09:47:20.958-05:00"
+        },
+        {
+            "id": "b3cf5257-862a-403b-99ca-3754bcf16071",
+            "name": "Plan IPv6",
+            "public_id": 28,
+            "cir": "0.5",
+            "ceil_down_kbps": 10240,
+            "ceil_up_kbps": 10240,
+            "price": "1.0",
+            "frequency_in_months": 1,
+            "contracts_count": 1,
+            "created_at": "2022-04-13T07:46:37.400-05:00",
+            "updated_at": "2022-04-18T09:47:32.269-05:00"
+        }
+    ]
+}"
+
+Ejemplo de respuest GET de menuAPI:
+
+"{
+    "status": 200,
+    "meta": {
+        "object": "client",
+        "pagination": {
+            "total_records": 1,
+            "total_pages": 1,
+            "per_page": 20,
+            "current_page": 1
+        }
+    },
+    "data": [
+        {
+            "id": "920cd8d5-7f87-4a92-bb92-9c94f8054451",
+            "public_id": 300,
+            "custom_id": "",
+            "name": "PRUEBA PEPITO",
+            "email": "",
+            "password": null,
+            "address": "",
+            "phone": "",
+            "phone_mobile": "",
+            "phone_mobile_verified": true,
+            "national_identification_number": "111111111",
+            "city": "",
+            "state": "",
+            "details": "",
+            "collector_id": null,
+            "seller_id": null,
+            "neighborhood_id": null,
+            "created_at": "2019-07-30T09:20:31.266-05:00",
+            "updated_at": "2019-07-30T09:20:31.266-05:00",
+            "link_mobile_login": "https://cloud.wispro.co/portal_api/auth/y0RFk3AIQlUdXOeV2O5SzA"
+        }
+    ]
+}"
+
