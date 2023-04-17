@@ -3,6 +3,9 @@ const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const MockAdapter = require('@bot-whatsapp/database/mock')
 const axios = require('axios');
+
+///////////////////////// API PLANES /////////////////////////
+
 const menuIDPLANES = async () => {
   const config = {
     method: 'get',
@@ -12,6 +15,7 @@ const menuIDPLANES = async () => {
       'accept': 'application/json'
     }
   };
+
   try {
     const { data } = await axios(config);
     return data.data;
@@ -20,6 +24,11 @@ const menuIDPLANES = async () => {
     return [];
   }
 };
+
+///////////////////////// API CONTRATOS ///////////////////////
+
+
+
 const menuAPICONTRATO = async (numero_documento) => {
   const parsedNumeroDocumento = parseFloat(numero_documento.replace(/[\.,]/g, ''));
   const planes = await menuIDPLANES();
@@ -49,6 +58,7 @@ const menuAPICONTRATO = async (numero_documento) => {
     console.log(`Number of contracts found: ${Array.isArray(contracts) ? contracts.length : 1}`);
     totalContratos = Array.isArray(contracts) ? contracts.length : 1;    
     console.log(`Total de contratos: ${totalContratos}`);
+    
     let contractInfo = [], planName;
     if (totalContratos === 1) {
       const contract = contracts[0];
@@ -72,6 +82,11 @@ const menuAPICONTRATO = async (numero_documento) => {
     return [{ body: 'Ocurrió un error al realizar la búsqueda. Por favor, inténtalo de nuevo más tarde.' }];
   }
 };
+
+
+///////////////////////// API USUARIOS ///////////////////////
+
+
 const menuAPI = async (numero_documento) => {
   const formatted_numero_documento = numero_documento.replace(/\./g, '');
   const parsed_numero_documento = parseFloat(formatted_numero_documento.replace(/,/g, '.'));
@@ -83,9 +98,11 @@ const menuAPI = async (numero_documento) => {
       'accept': 'application/json'
     }
   };
+
   try {
     const { data } = await axios(config);
     const client = data.data[0];
+
     if (!client) {
       const formatted_numero_documento_con_puntos = parsed_numero_documento.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
       const config_con_puntos = {
@@ -97,9 +114,11 @@ const menuAPI = async (numero_documento) => {
         }
       };
       const { data: data_con_puntos } = await axios(config_con_puntos);
+
       if (data_con_puntos.data.length === 0) {
         return [{ body: '*Cliente:* No se encontró ningún cliente con el número de identificación proporcionado.' }];
       }
+
       const {
         name,
         address,
@@ -128,6 +147,7 @@ const menuAPI = async (numero_documento) => {
       },
       ];
     }
+
     const {
       name,
       address,
@@ -149,35 +169,63 @@ const menuAPI = async (numero_documento) => {
       updated_at,
       link_mobile_login
     } = client;
+
     return [
       { body: `Usuario: *${name}:*\nDirección: ${address}\nID: ${id}\nEmail: ${email}\nNo. de documento: ${national_identification_number}\nCiudad: ${city}\nEstado: ${state}\nCreado en: ${created_at}\nActualziado en: ${updated_at}`
     }];
   } catch (error) {  }
 };
+
+
+
+
+
+///////////////////////// FLUJO CONVERSACIÓN //////////////////////
+
+
 const flowUsuarioNuevo = 
 addKeyword(['0'])
 .addAnswer(['Para contratar nuestro servicio de internet previamente se hará estudio crediticio en centrales de riesgos (no tiene costo y sin compromiso alguno)\n',
 '🧾 REQUISITOS PARA EL ESTUDIO CREDITICIO:\n',
 'Estos documentos puede enviarlos con foto tomada desde el celular siempre y cuando se vea enfocada la imagen y sean legibles los textos\n',
+
 '1️⃣ Foto de cédula ambas caras ( o cualquier documento extranjero )\n',
+
+
 '2️⃣ Recibo de servicios Públicos ( únicamente para validación de dirección y estrato del predio \n',
+
+
 '3️⃣ Aceptar y firmar el documento de Autorización de tratamiento de datos personales, ( Para permitirnos realizar el estudio crediticio) (Adjunto documento PDF al final del chat)\n',
+
 '👉🏼 COSTOS DE INSTALACIÓN:\n',
+
 '-Material Instalado $ 90.000 (Se deben cancelar el día de la instalación)',
+
 '-Router TP-Link dos antenas* $ 90.000 (Se debe cancelar el día de la instalación)*\n',
+
 '=TOTAL A CANCELAR $ 180.000',
+
 '*Este router quedará de su propiedad, pero si usted ya tiene un router por favor enviar referencia del modelo para ver si es compatible y no se le cobrará.\n',
+
 '🏷La primer factura del plan del servicio que contrate la puede cancelar a más tardar el día 30 del mes de la instalación.\n',
+
 'Por favor tenga en cuenta que nuestro servicio cuenta con contrato por un año, (ya que nosotros cubrimos el costo del cambio de la antena en caso de que esta se llegue a dañar.'])
 .addAnswer(['Planes y Tarifas'], { media: 'https://live.staticflickr.com/65535/52766118292_b4a97a4968_k.jpg' })
 .addAnswer(['Autorización Tratamineto de datos'], { media: 'https://drive.google.com/uc?export=view&id=1szf0mj3Y3wmQ0qLudxGBqG2Rd4iKWBP5&rl' })
+
+
+
+
+
 const flowSoportetecnico = 
 addKeyword(['2'])
 .addAnswer([
   '🟢 *0*. No tengo Internet en ningúno de mis disposiivos.',
   '🟢 *1*. No tengo Internet en solo uno de mis dispositivos.',
   '🟢 *2*. Mi internet está lento o intermitente'])
-const flowConsultadecontrato = 
+
+
+  const flowConsultadecontrato = 
   addKeyword(['0'])
     .addAnswer('Digita el número de documento del Titular de la cuenta:', { capture: true }, (ctx) => {
     console.log('No de Documento consultado: ', ctx.body);
@@ -194,10 +242,13 @@ const flowConsultadecontrato =
       const totalContratos = data[0][0].total_contratos;
       const totalContratosMessage = `Total de contratos encontrados:`;
   flowDynamic([{ body: `\n${totalContratosMessage} ${totalContratos}\n\n${message1}\n${message}\n`, total_contratos: totalContratos }])
+
      } else{
        console.log('No se capturó un número de documento válido.');
      }
   })
+
+
   const flowUsuarioantiguo = 
   addKeyword(['1'])
   .addAnswer([
@@ -205,20 +256,31 @@ const flowConsultadecontrato =
   '🟢 *1*. Solicitar un traspaso de titular de la cuenta',
   '🟢 *2*. Solicitar un cambio de plan de internet'],
   null, null, [flowConsultadecontrato])
+
+
+
 const flowINICIO = addKeyword(['.consulta1!']).addAnswer(['*📡 ¡Hola! Te damos la bienvenida a Radionet Soluciones* 👋\n\nPara darte una atención mas personalizada, elige una de las siguientes opciones, Solo debes escribir el número de la opción que deseas consultar :\n',
 '🟢 *0*. Deseo consultar información de los planes de internet, costos, requisitos y zonas de cobertura.',
 '🟢 *1*. Ya soy cliente y deseo hacer una solicitud o realizar un trámite administrativo.',
 '🟢 *2*. Ya soy cliente y necesito soporte técnico para mi servicio de internet.'],
 null,null, [flowUsuarioNuevo, flowUsuarioantiguo, flowSoportetecnico, flowConsultadecontrato])
+ 
+
+
+
 const main = async () => {
   const adapterDB = new MockAdapter()
   const adapterFlow = createFlow([flowINICIO])
   const adapterProvider = createProvider(BaileysProvider)
+
   createBot({
     flow: adapterFlow,
     provider: adapterProvider,
     database: adapterDB,
   })
+
   QRPortalWeb()
 }
+
+
 main();
