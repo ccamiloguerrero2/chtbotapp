@@ -1,4 +1,4 @@
-Ejemplo de respuesta GET de menuAPICONTRATO cuando el documento tiene solo 1 contrato:
+Ejemplo de la respuesta GET de menuAPICONTRATO cuando el documento tiene solo 1 contrato:
 
 "{
     "status": 200,
