@@ -1,4 +1,4 @@
-Ejemplo de respuest GET de menuAPICONTRATO cuando el documento tiene solo 1 contrato:
+Ejemplo de respuesta GET de menuAPICONTRATO cuando el documento tiene solo 1 contrato:
 
 "{
     "status": 200,
@@ -57,7 +57,7 @@ Ejemplo de respuest GET de menuAPICONTRATO cuando el documento tiene solo 1 cont
     ]
 }"
 
-Ejemplo de respuest GET de menuAPICONTRATO cuando el documento tiene mas de 1 contrato:
+Ejemplo de respuesta GET de menuAPICONTRATO cuando el documento tiene mas de 1 contrato:
 
 
 "{
@@ -202,7 +202,7 @@ Ejemplo de respuest GET de menuAPICONTRATO cuando el documento tiene mas de 1 co
 }"
 
 
-Ejemplo de respuest GET de menuIDPLANES:
+Ejemplo de respuesta GET de menuIDPLANES:
 
 "{
     "status": 200,
@@ -388,7 +388,7 @@ Ejemplo de respuest GET de menuIDPLANES:
     ]
 }"
 
-Ejemplo de respuest GET de menuAPI:
+Ejemplo de respuesta GET de menuAPI:
 
 "{
     "status": 200,
