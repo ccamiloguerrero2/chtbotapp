@@ -11,7 +11,7 @@ const menuIDPLANES = async () => {
     method: 'get',
     url: `https://www.cloud.wispro.co/api/v1/plans`,
     headers: {
-      'Authorization': 'de5e1560-13dc-41b0-8c9a-9378aaa80f11', 
+      'Authorization': 'e5e1560-13dc-41b0-8c9a-9378aaa80f1', 
       'accept': 'application/json'
     }
   };
@@ -36,7 +36,7 @@ const menuAPICONTRATO = async (numero_documento) => {
     method: 'get',
     url: `https://www.cloud.wispro.co/api/v1/contracts?client_national_identification_number_eq=${parsedNumeroDocumento}`,
     headers: {
-      'Authorization': 'de5e1560-13dc-41b0-8c9a-9378aaa80f11',
+      'Authorization': 'e5e1560-13dc-41b0-8c9a-9378aaa80f1',
       'accept': 'application/json'
     }
   };
@@ -108,7 +108,7 @@ const menuAPI = async (numero_documento) => {
     method: 'get',
     url: `https://www.cloud.wispro.co/api/v1/clients?national_identification_number_eq=${parsed_numero_documento}`,
     headers: {
-      'Authorization': 'de5e1560-13dc-41b0-8c9a-9378aaa80f11', 
+      'Authorization': 'e5e1560-13dc-41b0-8c9a-9378aaa80f1', 
       'accept': 'application/json'
     }
   };
@@ -123,7 +123,7 @@ const menuAPI = async (numero_documento) => {
         method: 'get',
         url: `https://www.cloud.wispro.co/api/v1/clients?national_identification_number_eq=${formatted_numero_documento_con_puntos}`,
         headers: {
-          'Authorization': 'de5e1560-13dc-41b0-8c9a-9378aaa80f11',
+          'Authorization': 'e5e1560-13dc-41b0-8c9a-9378aaa80f1',
           'accept': 'application/json'
         }
       };
