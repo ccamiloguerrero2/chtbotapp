@@ -42,7 +42,20 @@ const menuAPICONTRATO = async (numero_documento) => {
   };
   try {
     const { data } = await axios(config);
-    let contracts = Array.from(data.data);
+    let contracts = [];
+    if (Array.isArray(data.data)) {
+      contracts = data.data;
+    } else {
+      contracts.push(data.data);
+    }
+      let total_records = 0;
+
+   if (data.meta && data.meta.pagination && data.meta.pagination.total_records) {
+      total_records = data.meta.pagination.total_records;
+    } else {
+      total_records = contracts.length || 1;
+    }
+
     if (contracts.length === 0) {
       const formattedNumeroDocumentoConPuntos = parsedNumeroDocumento.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
       const configConPuntos = { ...config, url: `https://www.cloud.wispro.co/api/v1/contracts?client_national_identification_number_eq=${formattedNumeroDocumentoConPuntos}` };
@@ -51,12 +64,13 @@ const menuAPICONTRATO = async (numero_documento) => {
         return [{ body: '*Contrato:* No se encontró ningún contrato.' }];
       }
       contracts = Array.isArray(dataConPuntos.data) ? dataConPuntos.data : [dataConPuntos.data];
+      total_records = contracts.length;
     }
     if (!contracts || contracts.length < 1) {
       return [{ body: '*Contrato:* No se encontró ningún contrato.' }];
     }
     console.log(`Number of contracts found: ${Array.isArray(contracts) ? contracts.length : 1}`);
-    totalContratos = Array.isArray(contracts) ? contracts.length : 1;    
+    const totalContratos = Array.isArray(contracts) ? contracts.length : total_records;
     console.log(`Total de contratos: ${totalContratos}`);
     
     let contractInfo = [], planName;
@@ -143,7 +157,7 @@ const menuAPI = async (numero_documento) => {
       } = data_con_puntos.data[0];
 
       return [
-        { body: `Usuario: *${name}:*\nDirección: ${address}\nEmail: ${email}\nNo. de documento: ${national_identification_number}\nCiudad: ${city}\nEstado: ${state}`
+        { body: `Tituar: *${name}:*\nDirección: ${address}\nEmail: ${email}\nNo. de documento: ${national_identification_number}\nCiudad: ${city}\nEstado: ${state}`
       },
       ];
     }
@@ -171,13 +185,10 @@ const menuAPI = async (numero_documento) => {
     } = client;
 
     return [
-      { body: `Usuario: *${name}:*\nDirección: ${address}\nID: ${id}\nEmail: ${email}\nNo. de documento: ${national_identification_number}\nCiudad: ${city}\nEstado: ${state}\nCreado en: ${created_at}\nActualziado en: ${updated_at}`
+      { body: `Tituar: *${name}:*\nDirección: ${address}\nID: ${id}\nEmail: ${email}\nNo. de documento: ${national_identification_number}\nCiudad: ${city}\nEstado: ${state}\nCreado en: ${created_at}\nActualziado en: ${updated_at}`
     }];
   } catch (error) {  }
 };
-
-
-
 
 
 ///////////////////////// FLUJO CONVERSACIÓN //////////////////////
